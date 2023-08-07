@@ -2,13 +2,11 @@ package org.example.structure.linkedlist;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import org.w3c.dom.Node;
 
+@Data
 @NoArgsConstructor
-public class CustomLinkedList {
+public class DoublyLinkedList {
 
     private Node head;
     private Node tail;
