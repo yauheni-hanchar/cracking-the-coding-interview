@@ -3,8 +3,10 @@ package org.example.structure.linkedlist;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import lombok.Setter;
 import lombok.ToString;
 
 @Data
@@ -56,14 +58,26 @@ public class SinglyLinkedList {
     }
 
     public void addLast(Node newNode) {
-        if(head == null) {
-            head = newNode;
-        } else if (tail == null) {
-            tail = newNode;
-            head.next = tail;
+        if(newNode == null) {
+            return;
+        }
+        if (newNode.size() == 1) {
+            if(head == null) {
+                head = newNode;
+            } else if (tail == null) {
+                tail = newNode;
+                head.next = tail;
+            } else {
+                tail.next = newNode;
+                tail = newNode;
+            }
         } else {
-            tail.next = newNode;
-            tail = newNode;
+            if(head == null) {
+                head = newNode;
+            } else {
+                tail.next = newNode;
+            }
+            tail = newNode.getTail();
         }
     }
 
@@ -75,6 +89,16 @@ public class SinglyLinkedList {
             i++;
         }
         return current;
+    }
+
+    public int size() {
+        var current = head;
+        var size = 0;
+        while(current != null) {
+            size++;
+            current = current.next;
+        }
+        return size;
     }
 
     public void print() {
@@ -89,13 +113,15 @@ public class SinglyLinkedList {
         System.out.println();
     }
 
-    @Data
+    @Getter
+    @Setter
+    @ToString
+    @RequiredArgsConstructor
     @AllArgsConstructor
     public static class Node {
 
         private int data;
         @ToString.Exclude
-        @EqualsAndHashCode.Exclude
         private Node next;
 
         public Node(int data) {
@@ -106,6 +132,23 @@ public class SinglyLinkedList {
             return next != null;
         }
 
+        public int size() {
+            var size = 0;
+            var current = this;
+            while(current != null) {
+                size++;
+                current = current.next;
+            }
+            return size;
+        }
+
+        public Node getTail() {
+            var current = this;
+            while(current.hasNext()) {
+                current = current.next;
+            }
+            return current;
+        }
     }
 
 }
