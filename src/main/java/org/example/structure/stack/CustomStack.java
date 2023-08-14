@@ -11,35 +11,53 @@ import lombok.ToString;
 public class CustomStack<T> {
 
     private Node<T> top;
+    private int size;
 
     public void push(T data) {
-        var newNode = new Node<T>(data);
-        newNode.setNext(top);
-        top = newNode;
+        if(top == null) {
+            top = new Node<>(data);
+        } else {
+            var newNode = new Node<T>(data);
+            newNode.setNext(top);
+            top = newNode;
+        }
+        size++;
     }
 
     public T peek() {
-        return top.getData();
+        return top == null ? null : top.getData();
     }
 
     public T pop() {
-        if(top == null) {
-            throw new IllegalArgumentException();
+        if(top != null) {
+            var result = top.getData();
+            top = top.getNext();
+            size--;
+            return result;
         }
-        var result = top.getData();
-        top = top.getNext();
-        return result;
+        return null;
+    }
+
+    public boolean isEmpty() {
+        return top == null;
+    }
+
+    public void clear() {
+        top = null;
     }
 
     public void print() {
         if(top == null) {
             System.out.println("[]");
+            return;
         }
         var next = top;
+        System.out.print("[");
         while(next != null) {
             System.out.print(next.data + " ");
             next = next.next;
         }
+        System.out.print("]");
         System.out.println();
     }
 
