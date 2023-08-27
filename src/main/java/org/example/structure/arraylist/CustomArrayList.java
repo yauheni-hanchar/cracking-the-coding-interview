@@ -4,48 +4,47 @@ import java.util.Arrays;
 
 public class CustomArrayList<T> {
 
-    private final int DEFAULT_CAPACITY = 10;
-    private Object[] storage;
-    private int lastFreeIndex;
+  private final int DEFAULT_CAPACITY = 10;
+  private Object[] storage;
+  private int lastFreeIndex;
 
-    public CustomArrayList() {
-        storage = new Object[DEFAULT_CAPACITY];
+  public CustomArrayList() {
+    storage = new Object[DEFAULT_CAPACITY];
+  }
+
+  public CustomArrayList(int capacity) {
+    storage = new Object[capacity];
+  }
+
+  public void add(T element) {
+    var newCapacity = storage.length + (storage.length >> 1);
+    if (lastFreeIndex >= storage.length) {
+      storage = Arrays.copyOf(storage, newCapacity);
     }
+    storage[lastFreeIndex] = element;
+    lastFreeIndex++;
+  }
 
-    public CustomArrayList(int capacity) {
-        storage = new Object[capacity];
-    }
+  @SuppressWarnings("unchecked")
+  public T get(int index) {
+    return (T) storage[index];
+  }
 
-    public void add(T element) {
-        var newCapacity = storage.length + (storage.length >> 1);
-        if(lastFreeIndex >= storage.length) {
-            storage = Arrays.copyOf(storage, newCapacity);
-        }
-        storage[lastFreeIndex] = element;
-        lastFreeIndex++;
-    }
+  public int size() {
+    return lastFreeIndex;
+  }
 
-    @SuppressWarnings("unchecked")
-    public T get(int index) {
-        return (T) storage[index];
-    }
+  // remove
 
-    public int size() {
-        return lastFreeIndex;
-    }
+  // set
 
-    // remove
+  // add on index
 
-    // set
+  // contains
 
-    // add on index
+  // indexOf
 
-    // contains
-
-    // indexOf
-
-    public boolean isEmpty() {
-        return storage.length == 0;
-    }
-
+  public boolean isEmpty() {
+    return storage.length == 0;
+  }
 }

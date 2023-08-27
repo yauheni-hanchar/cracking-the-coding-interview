@@ -1,6 +1,5 @@
 package org.example.chapter1.arrays_and_strings;
 
-import java.io.IOException;
 
 public class Task1_7 {
 

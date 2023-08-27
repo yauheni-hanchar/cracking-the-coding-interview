@@ -8,7 +8,7 @@ public class Task1_9 {
   }
 
   public static boolean isRotation(String str1, String str2) {
-    if(str1.length() != str2.length()) {
+    if (str1.length() != str2.length()) {
       return false;
     }
     var concatenated = str1 + str1;
