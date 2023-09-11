@@ -3,6 +3,8 @@ package org.example.chapter4.trees_and_graphs;
 import org.example.structure.tree.BinaryTree;
 import org.example.structure.tree.BinaryTree.Node;
 
+import static java.lang.Integer.MIN_VALUE;
+
 public class Task4_4 {
 
   public static void main(String[] args) {
@@ -62,13 +64,19 @@ public class Task4_4 {
       return -1;
     }
     var leftMaxLevel = getMaxLevel(root.getLeft());
+    if(leftMaxLevel == MIN_VALUE) {
+      return MIN_VALUE;
+    }
     var rightMaxLevel = getMaxLevel(root.getRight());
+    if(rightMaxLevel == MIN_VALUE) {
+      return MIN_VALUE;
+    }
 
     var diff = Math.abs(leftMaxLevel - rightMaxLevel);
     if (diff > 1) {
-      return Integer.MIN_VALUE;
+      return MIN_VALUE;
     }
 
-    return Math.max(leftMaxLevel, rightMaxLevel);
+    return Math.max(leftMaxLevel, rightMaxLevel) + 1;
   }
 }
