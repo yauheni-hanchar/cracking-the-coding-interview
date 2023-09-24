@@ -54,7 +54,7 @@ public class BinaryTree<T> {
   }
 
   public static <T> void printInOrder(Node<T> current) {
-    if(current == null) {
+    if (current == null) {
       return;
     }
     printInOrder(current.getLeft());
@@ -62,7 +62,19 @@ public class BinaryTree<T> {
     printInOrder(current.getRight());
   }
 
+  public static <A> Node<A> copy(Node<A> root) {
+    if(root == null) {
+      return null;
+    }
+    var newRootObject = new Node<>(root.getData());
+    newRootObject.setLeft(copy(root.getLeft()));
+    newRootObject.setRight(copy(root.getRight()));
+
+    return newRootObject;
+  }
+
   @Data
+  @NoArgsConstructor
   @RequiredArgsConstructor(staticName = "of")
   public static class Node<T> {
 
@@ -76,12 +88,16 @@ public class BinaryTree<T> {
 
     public void setLeft(Node<T> left) {
       this.left = left;
-      left.setParent(this);
+      if(left != null) {
+        left.setParent(this);
+      }
     }
 
     public void setRight(Node<T> right) {
       this.right = right;
-      right.setParent(this);
+      if(right != null) {
+        right.setParent(this);
+      }
     }
 
     public void setChildren(Node<T> left, Node<T> right) {
