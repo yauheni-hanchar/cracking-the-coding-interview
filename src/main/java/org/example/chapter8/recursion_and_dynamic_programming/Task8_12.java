@@ -27,12 +27,7 @@ public class Task8_12 {
         rows[i] = queenNumber;
         mainDiagonal[column - i + n - 1] = queenNumber;
         antiDiagonal[column + i] = queenNumber;
-        setQueen(
-                n,
-                column + 1,
-                rows,
-                mainDiagonal,
-                antiDiagonal);
+        setQueen(n, column + 1, rows, mainDiagonal, antiDiagonal);
         rows[i] = 0;
         mainDiagonal[column - i + n - 1] = 0;
         antiDiagonal[column + i] = 0;

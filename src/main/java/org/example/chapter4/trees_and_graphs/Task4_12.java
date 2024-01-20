@@ -1,10 +1,8 @@
 package org.example.chapter4.trees_and_graphs;
 
+import java.util.HashMap;
 import org.example.structure.tree.BinaryTree;
 import org.example.structure.tree.BinaryTree.Node;
-
-import java.util.HashMap;
-import java.util.LinkedList;
 
 public class Task4_12 {
 

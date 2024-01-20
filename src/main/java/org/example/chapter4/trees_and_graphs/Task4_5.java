@@ -1,12 +1,9 @@
 package org.example.chapter4.trees_and_graphs;
 
+import static java.lang.Integer.MIN_VALUE;
+
 import org.example.structure.tree.BinaryTree;
 import org.example.structure.tree.BinaryTree.Node;
-
-import java.util.ArrayList;
-import java.util.List;
-
-import static java.lang.Integer.MIN_VALUE;
 
 public class Task4_5 {
 
@@ -80,9 +77,7 @@ public class Task4_5 {
 
   private static int previous = MIN_VALUE;
 
-  /**
-   * Does not work if we have equal elements in a tree
-   */
+  /** Does not work if we have equal elements in a tree */
   public static boolean isBST2(Node<Integer> current) {
     if (current == null) {
       return true;
@@ -104,13 +99,14 @@ public class Task4_5 {
   }
 
   public static boolean isBST3(Node<Integer> current, Integer min, Integer max) {
-    if(current == null) {
+    if (current == null) {
       return true;
     }
-    if(min != null && current.getData() <= min || max != null && current.getData() > max) {
+    if (min != null && current.getData() <= min || max != null && current.getData() > max) {
       return false;
     }
-    if(!isBST3(current.getLeft(), min, current.getData()) || !isBST3(current.getRight(), current.getData(), max)) {
+    if (!isBST3(current.getLeft(), min, current.getData())
+        || !isBST3(current.getRight(), current.getData(), max)) {
       return false;
     }
     return true;

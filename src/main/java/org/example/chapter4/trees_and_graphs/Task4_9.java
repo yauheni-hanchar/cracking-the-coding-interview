@@ -1,11 +1,9 @@
 package org.example.chapter4.trees_and_graphs;
 
-
-import org.example.structure.tree.BinaryTree;
-import org.example.structure.tree.BinaryTree.Node;
-
 import java.util.ArrayList;
 import java.util.LinkedList;
+import org.example.structure.tree.BinaryTree;
+import org.example.structure.tree.BinaryTree.Node;
 
 public class Task4_9 {
 
@@ -19,7 +17,7 @@ public class Task4_9 {
     var n5 = Node.of(5);
 
     tree.setRoot(root);
-    
+
     root.setLeft(n5);
     root.setRight(n1);
 

@@ -1,6 +1,5 @@
 package org.example.chapter8.recursion_and_dynamic_programming;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,7 +16,7 @@ public class Task8_8 {
   private static List<String> getPermutationsWithRepetitions(String str) {
     var lettersCount = countLetters(str);
     var result = new ArrayList<String>();
-    getPermutationsWithRepetitions("",str.length(), lettersCount, result);
+    getPermutationsWithRepetitions("", str.length(), lettersCount, result);
     return result;
   }
 
@@ -34,17 +33,19 @@ public class Task8_8 {
     return result;
   }
 
-  private static void getPermutationsWithRepetitions(String prefix, int remaining, HashMap<Character, Integer> lettersCount, List<String> result) {
-    if(remaining == 0) {
+  private static void getPermutationsWithRepetitions(
+      String prefix, int remaining, HashMap<Character, Integer> lettersCount, List<String> result) {
+    if (remaining == 0) {
       result.add(prefix);
       return;
     }
 
     for (var entry : lettersCount.entrySet()) {
       var value = entry.getValue();
-      if(value > 0) {
+      if (value > 0) {
         lettersCount.put(entry.getKey(), value - 1);
-        getPermutationsWithRepetitions(prefix + entry.getKey(), remaining - 1, lettersCount, result);
+        getPermutationsWithRepetitions(
+            prefix + entry.getKey(), remaining - 1, lettersCount, result);
         lettersCount.put(entry.getKey(), value);
       }
     }

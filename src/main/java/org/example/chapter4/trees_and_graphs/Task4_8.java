@@ -1,11 +1,9 @@
 package org.example.chapter4.trees_and_graphs;
 
+import java.util.LinkedList;
 import lombok.Data;
-import lombok.Getter;
 import org.example.structure.tree.BinaryTree;
 import org.example.structure.tree.BinaryTree.Node;
-
-import java.util.LinkedList;
 
 public class Task4_8 {
 
@@ -220,34 +218,35 @@ public class Task4_8 {
     return result;
   }
 
-  public static Result findCommonAncestor5(Node<Integer> root, Node<Integer> node1, Node<Integer> node2) {
+  public static Result findCommonAncestor5(
+      Node<Integer> root, Node<Integer> node1, Node<Integer> node2) {
     var result = new Result();
-    if(root == null) {
+    if (root == null) {
       return result;
     }
-    if(node1 == root) {
+    if (node1 == root) {
       result.setContainsFirst(true);
     }
-    if(node2 == root) {
+    if (node2 == root) {
       result.setContainsSecond(true);
     }
     var leftResult = findCommonAncestor5(root.getLeft(), node1, node2);
-    if(leftResult.firstCommonAncestor != null) {
+    if (leftResult.firstCommonAncestor != null) {
       result.setFirstCommonAncestor(leftResult.firstCommonAncestor);
       return result;
     }
     var rightResult = findCommonAncestor5(root.getRight(), node1, node2);
-    if(rightResult.firstCommonAncestor != null) {
+    if (rightResult.firstCommonAncestor != null) {
       result.setFirstCommonAncestor(rightResult.firstCommonAncestor);
       return result;
     }
-    if(result.containsFirst || leftResult.containsFirst || rightResult.containsFirst) {
+    if (result.containsFirst || leftResult.containsFirst || rightResult.containsFirst) {
       result.setContainsFirst(true);
     }
-    if(result.containsSecond || leftResult.containsSecond || rightResult.containsSecond) {
+    if (result.containsSecond || leftResult.containsSecond || rightResult.containsSecond) {
       result.setContainsSecond(true);
     }
-    if(result.containsBoth() && (leftResult.containsOnlyOne() || rightResult.containsOnlyOne())) {
+    if (result.containsBoth() && (leftResult.containsOnlyOne() || rightResult.containsOnlyOne())) {
       result.setFirstCommonAncestor(root);
       return result;
     }

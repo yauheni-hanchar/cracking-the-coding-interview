@@ -1,6 +1,5 @@
 package org.example.chapter1.arrays_and_strings;
 
-
 public class Task1_7 {
 
   public static void main(String[] args) {

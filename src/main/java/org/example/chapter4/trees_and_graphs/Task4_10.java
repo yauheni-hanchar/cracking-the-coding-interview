@@ -80,20 +80,20 @@ public class Task4_10 {
   }
 
   public static boolean isSubtree2(Node<Integer> root, Node<Integer> root2) {
-    if(root == null) {
+    if (root == null) {
       return false;
     }
     if (root.getData().equals(root2.getData()) && (isMatch(root, root2))) {
-        return true;
+      return true;
     }
     return isSubtree2(root.getLeft(), root2) || isSubtree2(root.getRight(), root2);
   }
 
   private static boolean isMatch(Node<Integer> root, Node<Integer> root2) {
-    if(root2 == null) {
+    if (root2 == null) {
       return true;
     }
-    if(root == null || !root2.getData().equals(root.getData())) {
+    if (root == null || !root2.getData().equals(root.getData())) {
       return false;
     }
     return isMatch(root.getLeft(), root2.getLeft()) && isMatch(root.getRight(), root2.getRight());

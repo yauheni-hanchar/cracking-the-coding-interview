@@ -1,14 +1,13 @@
 package org.example.chapter8.recursion_and_dynamic_programming;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
+import static java.util.Collections.emptyList;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Random;
-
-import static java.util.Collections.emptyList;
+import lombok.AllArgsConstructor;
+import lombok.Data;
 
 public class Task8_2 {
 

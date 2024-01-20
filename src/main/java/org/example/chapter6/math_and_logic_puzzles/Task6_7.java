@@ -11,15 +11,15 @@ public class Task6_7 {
     var random = new Random();
     random.nextBoolean();
     for (int i = 0; i < families.length; ) {
-        var nextChild = random.nextBoolean();
-        if(nextChild) {
-            i++;
-        } else {
-            families[i] += 1;
-        }
+      var nextChild = random.nextBoolean();
+      if (nextChild) {
+        i++;
+      } else {
+        families[i] += 1;
+      }
     }
 
-//    System.out.println(Arrays.toString(families));
+    //    System.out.println(Arrays.toString(families));
     Arrays.stream(families).average().ifPresent(System.out::println);
   }
 }

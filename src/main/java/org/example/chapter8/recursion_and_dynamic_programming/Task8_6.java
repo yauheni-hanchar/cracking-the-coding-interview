@@ -7,7 +7,7 @@ public class Task8_6 {
   public static void main(String[] args) {
     var n = 30;
     var first = new Stack<Integer>();
-    for(int i = n; i >0; i--) {
+    for (int i = n; i > 0; i--) {
       first.push(i);
     }
     var second = new Stack<Integer>();
@@ -21,8 +21,9 @@ public class Task8_6 {
     System.out.println("third = " + third);
   }
 
-  private static void moveTowers(int n, Stack<Integer> source, Stack<Integer> buffer, Stack<Integer> target) {
-    if(n == 1) {
+  private static void moveTowers(
+      int n, Stack<Integer> source, Stack<Integer> buffer, Stack<Integer> target) {
+    if (n == 1) {
       var top = source.pop();
       target.push(top);
       return;

@@ -19,8 +19,8 @@ public class Task5_1 {
   }
 
   private static int clearFrom(int n, int i, int j) {
-     var right1 = 1 << (i - 1);
-     var left1 = -1 << (j + 1);
-     return (left1 | right1) & n;
+    var right1 = 1 << (i - 1);
+    var left1 = -1 << (j + 1);
+    return (left1 | right1) & n;
   }
 }

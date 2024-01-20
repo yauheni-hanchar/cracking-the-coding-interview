@@ -7,7 +7,7 @@ import org.example.structure.graph.AdjacencyListGraph.Node;
 public class Task4_1 {
 
   public static void main(String[] args) {
-//    taskTest();
+    //    taskTest();
 
     bidirectionalSearchTest();
   }
@@ -27,8 +27,8 @@ public class Task4_1 {
     var nodeK = Node.builder().name("K").build();
     var nodeL = Node.builder().name("L").build();
     var nodeM = Node.builder().name("M").build();
-    graph.addVertexes(nodeA, nodeB, nodeC, nodeD, nodeE, nodeF,
-            nodeG, nodeH, nodeI, nodeJ, nodeK, nodeL, nodeM);
+    graph.addVertexes(
+        nodeA, nodeB, nodeC, nodeD, nodeE, nodeF, nodeG, nodeH, nodeI, nodeJ, nodeK, nodeL, nodeM);
 
     graph.addEdge(nodeA, nodeM);
     graph.addEdge(nodeA, nodeB);
@@ -43,7 +43,7 @@ public class Task4_1 {
     graph.addEdge(nodeH, nodeI);
     graph.addEdge(nodeI, nodeJ);
     graph.addEdge(nodeJ, nodeC);
-//    graph.addEdge(nodeB, nodeC);
+    //    graph.addEdge(nodeB, nodeC);
     graph.addEdge(nodeB, nodeE);
     graph.addEdge(nodeC, nodeE);
 

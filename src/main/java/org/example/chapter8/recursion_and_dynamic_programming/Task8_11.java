@@ -1,7 +1,5 @@
 package org.example.chapter8.recursion_and_dynamic_programming;
 
-import java.util.HashMap;
-
 public class Task8_11 {
 
   public static void main(String[] args) {
@@ -17,15 +15,15 @@ public class Task8_11 {
 
   private static long calculateWays2(int n, int[] denoms, int index, int[][] map) {
     var cached = map[n][index];
-    if(cached > 0) {
+    if (cached > 0) {
       return cached;
     }
-    if(index >= denoms.length - 1) {
+    if (index >= denoms.length - 1) {
       return 1;
     }
     var denomsAmount = denoms[index];
     var ways = 0;
-    for(int i = 0; i * denomsAmount <= n; i++) {
+    for (int i = 0; i * denomsAmount <= n; i++) {
       var amountRemaining = n - i * denomsAmount;
       ways += calculateWays2(amountRemaining, denoms, index + 1, map);
     }

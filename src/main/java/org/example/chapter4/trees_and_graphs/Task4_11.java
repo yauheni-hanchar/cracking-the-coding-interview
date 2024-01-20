@@ -1,14 +1,13 @@
 package org.example.chapter4.trees_and_graphs;
 
+import java.util.HashMap;
+import java.util.Random;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import org.example.chapter4.trees_and_graphs.Task4_11.BinaryTree.Node;
-
-import java.util.HashMap;
-import java.util.Random;
 
 public class Task4_11 {
 

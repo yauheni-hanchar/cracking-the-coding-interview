@@ -1,9 +1,9 @@
 package org.example.chapter4.trees_and_graphs;
 
+import static java.lang.Integer.MIN_VALUE;
+
 import org.example.structure.tree.BinaryTree;
 import org.example.structure.tree.BinaryTree.Node;
-
-import static java.lang.Integer.MIN_VALUE;
 
 public class Task4_4 {
 
@@ -64,11 +64,11 @@ public class Task4_4 {
       return -1;
     }
     var leftMaxLevel = getMaxLevel(root.getLeft());
-    if(leftMaxLevel == MIN_VALUE) {
+    if (leftMaxLevel == MIN_VALUE) {
       return MIN_VALUE;
     }
     var rightMaxLevel = getMaxLevel(root.getRight());
-    if(rightMaxLevel == MIN_VALUE) {
+    if (rightMaxLevel == MIN_VALUE) {
       return MIN_VALUE;
     }
 

@@ -1,7 +1,5 @@
 package org.example.chapter5.bit_manipulation;
 
-import java.util.Arrays;
-
 import static java.lang.Integer.toBinaryString;
 
 public class Task5_8 {

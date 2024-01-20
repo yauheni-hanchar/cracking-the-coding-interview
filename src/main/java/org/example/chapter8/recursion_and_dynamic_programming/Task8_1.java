@@ -16,24 +16,27 @@ public class Task8_1 {
     if (stepsCount < 3) {
       return stepsCount;
     }
-    if(stepsCount == 3) {
+    if (stepsCount == 3) {
       return 4L;
     }
-    if(buffer[stepsCount] == 0) {
-      buffer[stepsCount] = countWays(stepsCount - 1, buffer) + countWays(stepsCount - 2, buffer) + countWays(stepsCount - 3, buffer);
+    if (buffer[stepsCount] == 0) {
+      buffer[stepsCount] =
+          countWays(stepsCount - 1, buffer)
+              + countWays(stepsCount - 2, buffer)
+              + countWays(stepsCount - 3, buffer);
     }
     return buffer[stepsCount];
   }
 
   public static long countWays2(int stepsCount) {
-    if(stepsCount == 0) {
+    if (stepsCount == 0) {
       return 0;
     }
     var a = 1L;
     var b = 2L;
     var c = 4L;
     var copyI = 4;
-    for(int i = 4; i < stepsCount + 1; i++) {
+    for (int i = 4; i < stepsCount + 1; i++) {
       var tempC = c;
       c = a + b + c;
       a = b;

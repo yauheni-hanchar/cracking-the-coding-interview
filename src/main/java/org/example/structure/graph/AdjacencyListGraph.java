@@ -37,6 +37,7 @@ public class AdjacencyListGraph {
 
   /**
    * Finds the shortest or shortest + 1 path between nodes
+   *
    * @param root1
    * @param root2
    * @return
@@ -55,9 +56,9 @@ public class AdjacencyListGraph {
     boolean[] visited2 = new boolean[size];
     visited2[nodes.indexOf(root2)] = true;
     int[] parents1 = new int[size];
-    Arrays.fill(parents1,-999);
+    Arrays.fill(parents1, -999);
     int[] parents2 = new int[size];
-    Arrays.fill(parents2,-999);
+    Arrays.fill(parents2, -999);
 
     parents1[nodes.indexOf(root1)] = -1;
     parents2[nodes.indexOf(root2)] = -1;
@@ -71,7 +72,7 @@ public class AdjacencyListGraph {
         intersectNode = getIntersection(visited1, visited2);
       }
 
-      if(intersectNode != -1) {
+      if (intersectNode != -1) {
         printPath(root1, root2, intersectNode, parents1, parents2);
         return true;
       }
@@ -80,13 +81,14 @@ public class AdjacencyListGraph {
     return false;
   }
 
-  private void printPath(Node root1, Node root2, int intersectNode, int[] parents1, int[] parents2) {
+  private void printPath(
+      Node root1, Node root2, int intersectNode, int[] parents1, int[] parents2) {
     LinkedList<Node> path = new LinkedList<>();
     path.add(nodes.get(intersectNode));
 
     var i = parents1[intersectNode];
     var startParent1 = nodes.get(i);
-    while(!startParent1.equals(root1)) {
+    while (!startParent1.equals(root1)) {
       path.push(startParent1);
       i = parents1[i];
       startParent1 = nodes.get(i);
@@ -95,7 +97,7 @@ public class AdjacencyListGraph {
 
     var j = parents2[intersectNode];
     var startParent2 = nodes.get(j);
-    while(!startParent2.equals(root2)) {
+    while (!startParent2.equals(root2)) {
       path.add(startParent2);
       j = parents2[j];
       startParent2 = nodes.get(j);
@@ -108,13 +110,13 @@ public class AdjacencyListGraph {
 
   private void bfsStep(LinkedList<Node> queue, boolean[] visited, int[] parents) {
     var parent = queue.poll();
-    if(parent == null) {
+    if (parent == null) {
       return;
     }
     var indexOfParent = nodes.indexOf(parent);
-    for(var child : parent.getChildren()) {
+    for (var child : parent.getChildren()) {
       var indexOfChild = nodes.indexOf(child);
-      if(!visited[indexOfChild]) {
+      if (!visited[indexOfChild]) {
         queue.add(child);
         visited[indexOfChild] = true;
         parents[indexOfChild] = indexOfParent;
@@ -123,8 +125,8 @@ public class AdjacencyListGraph {
   }
 
   private int getIntersection(boolean[] visited1, boolean[] visited2) {
-    for(int i = 0; i < visited1.length; i++) {
-      if(visited1[i] && visited1[i] == visited2[i]) {
+    for (int i = 0; i < visited1.length; i++) {
+      if (visited1[i] && visited1[i] == visited2[i]) {
         return i;
       }
     }
@@ -147,8 +149,7 @@ public class AdjacencyListGraph {
     private String name;
     private boolean visited;
 
-    @Builder.Default @EqualsAndHashCode.Exclude
-    @ToString.Exclude
+    @Builder.Default @EqualsAndHashCode.Exclude @ToString.Exclude
     private ArrayList<Node> children = new ArrayList<>();
 
     public void addAll(Node... nodes) {

@@ -15,7 +15,7 @@ public class Task8_5 {
   }
 
   private static int recursiveMultiply(int a, int b) {
-    if(b == 1) {
+    if (b == 1) {
       return a;
     }
     return a + recursiveMultiply(a, b - 1);
@@ -25,7 +25,7 @@ public class Task8_5 {
     if (b == 0) {
       return result;
     }
-    if((b & 1) == 1) {
+    if ((b & 1) == 1) {
       return recursiveMultiply2(a << 1, b >> 1, result + a);
     }
     return recursiveMultiply2(a << 1, b >> 1, result);
@@ -35,8 +35,8 @@ public class Task8_5 {
     var min = min(a, b);
     var max = max(a, b);
     var result = 0;
-    while(min != 0) {
-      if((min & 1) == 1) {
+    while (min != 0) {
+      if ((min & 1) == 1) {
         result += max;
       }
       min >>= 1;

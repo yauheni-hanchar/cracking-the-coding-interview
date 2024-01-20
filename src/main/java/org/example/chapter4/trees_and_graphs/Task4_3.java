@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
-
 import org.example.structure.tree.BinaryTree;
 import org.example.structure.tree.BinaryTree.Node;
 
@@ -37,7 +36,7 @@ public class Task4_3 {
   }
 
   public static List<LinkedList<Node<Integer>>> getLevels(BinaryTree<Integer> tree) {
-    if(tree == null) {
+    if (tree == null) {
       return Collections.emptyList();
     }
     LinkedList<LinkedList<Node<Integer>>> levels = new LinkedList<>();
@@ -47,18 +46,18 @@ public class Task4_3 {
     levels.push(level);
 
     boolean isEnd = false;
-    while(!isEnd) {
+    while (!isEnd) {
       var lastLevel = levels.peekLast();
       var nextLevel = new LinkedList<Node<Integer>>();
-      for(var node : lastLevel) {
-        if(node.getLeft() != null) {
+      for (var node : lastLevel) {
+        if (node.getLeft() != null) {
           nextLevel.add(node.getLeft());
         }
-        if(node.getRight() != null) {
+        if (node.getRight() != null) {
           nextLevel.add(node.getRight());
         }
       }
-      if(nextLevel.isEmpty()) {
+      if (nextLevel.isEmpty()) {
         isEnd = true;
       } else {
         levels.add(nextLevel);
@@ -67,21 +66,21 @@ public class Task4_3 {
     return levels;
   }
 
-  public static void getLevelsRecursive(Node<Integer> root, ArrayList<LinkedList<Node<Integer>>> result, int levelInt) {
-    if(root == null) {
+  public static void getLevelsRecursive(
+      Node<Integer> root, ArrayList<LinkedList<Node<Integer>>> result, int levelInt) {
+    if (root == null) {
       return;
     }
 
     LinkedList<Node<Integer>> level = new LinkedList<>();
-    if(result.size() == levelInt) {
+    if (result.size() == levelInt) {
       result.add(level);
     } else {
       level = result.get(levelInt);
     }
 
     level.add(root);
-    getLevelsRecursive(root.getLeft(), result,levelInt + 1);
-    getLevelsRecursive(root.getRight(), result,levelInt + 1);
+    getLevelsRecursive(root.getLeft(), result, levelInt + 1);
+    getLevelsRecursive(root.getRight(), result, levelInt + 1);
   }
-
 }

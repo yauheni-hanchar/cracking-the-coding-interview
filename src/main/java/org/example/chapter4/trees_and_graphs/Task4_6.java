@@ -1,7 +1,5 @@
 package org.example.chapter4.trees_and_graphs;
 
-import static java.lang.Integer.MIN_VALUE;
-
 import org.example.structure.tree.BinaryTree;
 import org.example.structure.tree.BinaryTree.Node;
 

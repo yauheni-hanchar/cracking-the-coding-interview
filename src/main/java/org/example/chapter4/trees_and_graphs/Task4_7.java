@@ -1,14 +1,13 @@
 package org.example.chapter4.trees_and_graphs;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
 
 public class Task4_7 {
 
@@ -44,19 +43,19 @@ public class Task4_7 {
     var endOfOrder = addNonDependent(nodes, finalOrder, 0);
 
     int toBeProcessed = 0;
-    while(toBeProcessed < finalOrder.length - 1) {
+    while (toBeProcessed < finalOrder.length - 1) {
       System.out.println("----------");
       System.out.println("finalOrder = " + Arrays.toString(finalOrder));
       System.out.println("toBeProcessed = " + toBeProcessed);
       System.out.println("offset = " + endOfOrder);
       var current = finalOrder[toBeProcessed];
       System.out.println("current = " + current);
-      if(current == null) {
+      if (current == null) {
         return null;
       }
       System.out.println("current.children = " + current.getChildren());
 
-      for(var child : current.getChildren()) {
+      for (var child : current.getChildren()) {
         child.decreaseDependencies();
       }
 
@@ -69,10 +68,10 @@ public class Task4_7 {
 
   private static int addNonDependent(ArrayList<Project> nodes, Project[] order, int offset) {
     for (var node : nodes) {
-        if(node.getDependencies() == 0) {
-          order[offset] = node;
-          offset++;
-        }
+      if (node.getDependencies() == 0) {
+        order[offset] = node;
+        offset++;
+      }
     }
     return offset;
   }
@@ -109,12 +108,9 @@ public class Task4_7 {
   public static class Project {
 
     private String name;
-    @ToString.Exclude
-    private ArrayList<Project> children = new ArrayList<>();
-    @ToString.Exclude
-    private HashMap<String, Project> map = new HashMap<>();
-    @ToString.Exclude
-    private int dependencies = 0;
+    @ToString.Exclude private ArrayList<Project> children = new ArrayList<>();
+    @ToString.Exclude private HashMap<String, Project> map = new HashMap<>();
+    @ToString.Exclude private int dependencies = 0;
 
     public Project(String name) {
       this.name = name;

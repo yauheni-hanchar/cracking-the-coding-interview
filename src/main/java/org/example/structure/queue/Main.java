@@ -1,6 +1,5 @@
 package org.example.structure.queue;
 
-
 public class Main {
 
   public static void main(String[] args) {

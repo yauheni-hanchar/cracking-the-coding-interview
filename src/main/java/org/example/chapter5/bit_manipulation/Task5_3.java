@@ -1,6 +1,5 @@
 package org.example.chapter5.bit_manipulation;
 
-import static java.lang.Integer.SIZE;
 import static java.lang.Math.max;
 
 public class Task5_3 {

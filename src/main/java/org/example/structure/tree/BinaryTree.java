@@ -63,7 +63,7 @@ public class BinaryTree<T> {
   }
 
   public static <A> Node<A> copy(Node<A> root) {
-    if(root == null) {
+    if (root == null) {
       return null;
     }
     var newRootObject = new Node<>(root.getData());
@@ -88,14 +88,14 @@ public class BinaryTree<T> {
 
     public void setLeft(Node<T> left) {
       this.left = left;
-      if(left != null) {
+      if (left != null) {
         left.setParent(this);
       }
     }
 
     public void setRight(Node<T> right) {
       this.right = right;
-      if(right != null) {
+      if (right != null) {
         right.setParent(this);
       }
     }

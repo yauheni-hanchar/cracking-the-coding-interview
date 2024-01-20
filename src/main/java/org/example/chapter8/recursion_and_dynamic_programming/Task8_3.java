@@ -15,17 +15,24 @@ public class Task8_3 {
   }
 
   private static int findMagicNumber(int[] array, int inclusiveStart, int inclusiveEnd) {
-    System.out.println("start = " + inclusiveStart + " end = " + inclusiveEnd + " array[i] = " + array[inclusiveStart]);
+    System.out.println(
+        "start = "
+            + inclusiveStart
+            + " end = "
+            + inclusiveEnd
+            + " array[i] = "
+            + array[inclusiveStart]);
 
     // if condition below cannot be used if elements are not unique
-    if(array[inclusiveStart] > inclusiveStart || array[inclusiveEnd] < inclusiveEnd) {
+    if (array[inclusiveStart] > inclusiveStart || array[inclusiveEnd] < inclusiveEnd) {
       return -1;
     }
-    if(inclusiveStart == inclusiveEnd) {
+    if (inclusiveStart == inclusiveEnd) {
       return array[inclusiveStart] == inclusiveStart ? array[inclusiveStart] : -1;
     }
     var middle = (inclusiveStart + inclusiveEnd) / 2;
-    return max(findMagicNumber(array, inclusiveStart, middle),
-            findMagicNumber(array, middle + 1, inclusiveEnd));
+    return max(
+        findMagicNumber(array, inclusiveStart, middle),
+        findMagicNumber(array, middle + 1, inclusiveEnd));
   }
 }
